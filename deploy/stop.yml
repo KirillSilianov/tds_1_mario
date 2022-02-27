@@ -1,0 +1,9 @@
+---
+
+- hosts: server
+
+  tasks:
+    - name: Mario stopped
+      community.docker.docker_container:
+        name: webmario
+        state: stopped

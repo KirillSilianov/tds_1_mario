@@ -17,4 +17,9 @@
 ansible-playbook ./deploy/deploy.yml -i ./deploy/inventory.yml
 ```
 
+## Остановка ##
+```console
+ansible-playbook ./deploy/stop.yml -i ./deploy/inventory.yml
+```
+
 Игра будет доступна в браузере по адресу <адрес виртуальной машины>:9999 (порт определяется в переменных роли)
