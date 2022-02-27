@@ -1,0 +1,8 @@
+---
+
+- name: "Mario container started"
+  community.docker.docker_container:
+    name: webmario
+    image: kaminskypavel/mario
+    ports:
+      - "{{ mario.port }}:8080"

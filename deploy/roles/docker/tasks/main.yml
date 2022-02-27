@@ -1,0 +1,37 @@
+---
+
+
+- name: 'Docker repository added'
+  get_url:
+    url: "https://download.docker.com/linux/centos/docker-ce.repo"
+    dest: '/etc/yum.repos.d/docker-ce.repo'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: 'Python dependencies installed'
+  yum:
+    name:
+      - epel-release
+    state: present
+
+- name: 'Docker installed'
+  yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - python2-pip
+
+- name: 'Python packages installed'
+  pip:
+    executable: /usr/bin/pip2
+    name:
+      - docker-py
+      - websocket-client==0.32.0
+
+- name: 'Docker started'
+  service:
+    name: docker
+    state: started
+    enabled: true
